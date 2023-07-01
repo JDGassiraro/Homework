@@ -4,11 +4,11 @@ pizzaToppings = ["Cheese", " Cheetos", " Pepperoni", " Canadian Bacon", " Pineap
 // then informs them of the available toppings by looping over pizzaToppings (don't worry about perfect grammar here yet, i.e. "a, b, and c", see Bonus Challenge #9)
 // i.e. "Welcome to Pizza House, our toppings are: a, b, c, ..."
 const greetCustomer = () => {
-let startGreeting = "Welcome to Ambrose's Pizziaria, our topppings are: ";
+let startGreeting = "Welcome to Ambrose's Pizzeria, our topppings are: ";
 for(let topping of pizzaToppings){
   startGreeting += `${topping}`;
 }
-  console.log(startGreeting);
+  console.log(startGreeting + ".");
 }
 //greetCustomer();
 
@@ -22,6 +22,8 @@ const getPizzaOrder = (size, crust, ...toppings) => {
 return pizzaOptions;
 }
 //getPizzaOrder("large", "thick", "cheese", " mushrooms", " pepperoni");
+//const pizzaResponse = getPizzaOrder("large", "thick", "cheese", " mushrooms", " pepperoni");
+//console.log(pizzaResponse);
 
 // Create a preparePizza function that
 // has an array as its parameter with three items: a size, a crust, and a list of toppings
@@ -31,33 +33,27 @@ const preparePizza = ([size, crust, ...toppings]) => {
 
   console.log("Preparing pizza now...");
 
-  return pizzaObject = {
-    pizzaSize : preparePizza[size],
-    pizzaCrust : preparePizza[crust],
+  return {
+    pizzaSize : size,
+    pizzaCrust : crust,
     pizzaToppings : [...toppings],
   };
 }
-preparePizza("large", "thick", "cheese", "pepperoni", "mushroom");
-console.log(pizzaObject);
 
 // Create a servePizza function that
 // has a parameter of a pizza Object
 // logs a message that the pizza is ready and repeats the order, i.e. "Order up! Here's your large thick crust pizza with x, y, z, ... Enjoy!"
 // outputs the same pizza Object that was passed in
 const servePizza = (pizzaObject) => {
+  const toppingsString = pizzaObject.pizzaToppings.join(", ");
+  console.log(`Order up! Here's your ${pizzaObject.pizzaSize} ${pizzaObject.pizzaCrust} crust pizza with ${toppingsString}, Enjoy!`);
 
-  console.log(`Order up! Here's your ${pizzaObject.pizzaSize} ${pizzaObject.pizzaCrust} crust pizza with ${pizzaObject.pizzaToppings}, Enjoy!`);
-
-  return { pizzaObject}
+  return pizzaObject;
 }
-
-//preparePizza("large", "thick", "cheese", "mushrooms", "pepperoni");
-//servePizza(pizzaObject = {
-//  pizzaSize : preparePizza[size],
-//  pizzaCrust : preparePizza[crust],
-//  pizzaToppings : [...toppings],
-//});
-
+greetCustomer();
+const finalPizza = preparePizza(["large", "thick", "cheese", "pepperoni", "mushroom"]);
+const pizzaReady = servePizza(finalPizza);
+console.log(pizzaReady);
 // Call each function and (starting with preparePizza) use the returned value from the previous function as its input
 
 // Add, commit, and push your JS file to your GitHub repo.
