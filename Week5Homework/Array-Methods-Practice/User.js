@@ -230,6 +230,8 @@ const data = [
     }
   }
 ]
+
+
 const phoneNumbers = [];
 
 //prints an array of phone numbers
@@ -237,6 +239,7 @@ data.forEach(user => {phoneNumbers.push(user.phone)});
 console.log(phoneNumbers);
 
 const virtual = [];
+
 data.forEach(user => {
   let website = user.website;
   let email = user.email;
