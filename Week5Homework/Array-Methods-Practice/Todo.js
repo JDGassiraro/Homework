@@ -317,7 +317,7 @@ const info = [
 
 // create a list of user 3's to-dos
 // then find the number of user 3's incomplete tasks
-const newArray = info.filter(index => {index.userId == 3});
+const newArray = info.filter(index => index.userId == 3);
 console.log(newArray);
 
 let tasksLeft = 0;

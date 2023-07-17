@@ -308,7 +308,7 @@ const info = [
   // }
 
   // create a list of user 5's posts
-  const newArray = info.filter(index => {index.id == 5});
+  const newArray = info.filter(index => index.userId == 5);
   console.log(newArray);
   // then, create a list of title and body pairs
   const result = info.map(user => {
